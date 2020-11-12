@@ -1,13 +1,23 @@
 package se.iths.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
+@Entity
 public class Student {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+ //   @NotEmpty
     private String firstName;
-    private String lastname;
+  //  @NotEmpty
+    private String lastName;
+  //  @NotEmpty
     private String email;
     private String phoneNumber;
 
@@ -28,11 +38,11 @@ public class Student {
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public String getEmail() {
