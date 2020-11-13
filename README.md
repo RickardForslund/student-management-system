@@ -61,7 +61,7 @@
 
   < http://localhost:8080/se.iths/api/v1/student/id/1 > 
   
-  ----
+----
 
 * **URL**
 
@@ -91,7 +91,7 @@
 
   < http://localhost:8080/se.iths/api/v1/student/firstname/Rickard > 
   
-    ----
+----
 
 * **URL**
 
@@ -121,7 +121,7 @@
 
   < http://localhost:8080/se.iths/api/v1/student/lastname/Forslund > 
   
-      ----
+----
 
 * **URL**
 
@@ -150,7 +150,7 @@
 
   < http://localhost:8080/se.iths/api/v1/student/add > 
   
-        ----
+----
 
 * **URL**
 
@@ -182,7 +182,7 @@
 
   < http://localhost:8080/se.iths/api/v1/student/delete/4 > 
   
-          ----
+----
 
 * **URL**
 
