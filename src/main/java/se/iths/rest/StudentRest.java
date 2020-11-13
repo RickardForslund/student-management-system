@@ -2,7 +2,6 @@ package se.iths.rest;
 
 import se.iths.entity.Student;
 import se.iths.service.StudentService;
-
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -24,6 +23,7 @@ public class StudentRest {
 
 
     @Path("add")
+    @Produces(MediaType.TEXT_PLAIN)
     @POST
     public Response addStudent(Student student) {
         studentService.createStudent(student);
@@ -35,20 +35,58 @@ public class StudentRest {
     @Produces(MediaType.APPLICATION_JSON)
     @GET
     public List<Student> get() {
-        return studentService.getAllStudents();
+        if (!studentService.getAllStudents().isEmpty())
+            return studentService.getAllStudents();
+
+        throw new StudentNotFoundException(ExceptionMessages.Cant_Find_Any_Students);
+
+
     }
 
-    @Path("get/{id}")
+    @Path("id/{id}")
     @GET
     public Response getStudentById(@PathParam("id") Long id){
         return getResponseOrException(studentService.findStudentById(id),ExceptionMessages.Invalid_Student_ID);
+    }
+
+    @Path("firstname/{firstName}")
+    @GET
+    public List<Student> getStudentByFirstName(@PathParam("firstName") String firstName){
+        if (!studentService.findStudentByfirstName(firstName).isEmpty())
+            return studentService.findStudentByfirstName(firstName);
+
+        throw new StudentNotFoundException(ExceptionMessages.Invalid_Student_Firstname);
+    }
+
+    @Path("lastname/{lastName}")
+    @GET
+    public List<Student> getStudentBylastName(@PathParam("lastName") String lastName){
+        if (!studentService.findStudentBylastName(lastName).isEmpty())
+            return studentService.findStudentBylastName(lastName);
+
+        throw new StudentNotFoundException(ExceptionMessages.Invalid_Student_Lastname);
 
     }
 
+    @Path("update")
+    @PUT
+    public Response updateItem(Student student) {
+        studentService.updateStudent(student);
+        return Response.ok(student).build();
+    }
 
-        /*
-        if (studentFoundById != null)return Response.ok(studentFoundById).build();
-        throw new StudentNotFoundException(ExceptionMessages.Invalid_Student_ID);
-        */
+
+    @Path("delete/{id}")
+    @Produces(MediaType.TEXT_PLAIN)
+    @DELETE
+    public Response deleteStudent(@PathParam("id") Long id) {
+        Student foundStudent = studentService.findStudentById(id);
+        if (foundStudent != null) {
+            studentService.deleteStudent(id);
+            return Response.ok().entity("Item with ID " + id + " was successfully deleted.").build();
+        } else {
+            throw new StudentNotFoundException(ExceptionMessages.Invalid_Student_ID);
+        }
+    }
 
 }

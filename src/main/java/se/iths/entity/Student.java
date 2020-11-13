@@ -13,13 +13,23 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
- //   @NotEmpty
+    @NotEmpty
     private String firstName;
-  //  @NotEmpty
     private String lastName;
-  //  @NotEmpty
+    @NotEmpty
     private String email;
+    @NotEmpty
     private String phoneNumber;
+
+    public Student() {
+    }
+
+    public Student(String firstName, String lastName, String email, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Long getId() {
         return id;
