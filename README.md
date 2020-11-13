@@ -144,7 +144,6 @@
 
 
   * **Code:** `400 Bad Request`<br />
-  * **Error:** `Invalid_Student_Lastname`
   
 
 * **Sample Call:**
@@ -169,7 +168,7 @@
   
   
   * **Code:** `200 OK`<br />
-  * **Message**  `Item with ID 4 was successfully deleted.`
+  * **Message**  `Item with ID {id} was successfully deleted.`
   
  
 * **Error Response:**
@@ -181,7 +180,7 @@
 
 * **Sample Call:**
 
-  < http://localhost:8080/se.iths/api/v1/student/add > 
+  < http://localhost:8080/se.iths/api/v1/student/delete/4 > 
   
           ----
 
