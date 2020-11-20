@@ -38,5 +38,11 @@ public class Teacher {
         subject.setTeacher(this);
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
 
+    public String getLastname() {
+        return lastname;
+    }
 }

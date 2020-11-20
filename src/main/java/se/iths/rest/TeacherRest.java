@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Set;
 
-@Path("teacher/")
+@Path("teacher")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class TeacherRest {
@@ -22,14 +22,14 @@ public class TeacherRest {
     @Path("getAll")
     @Produces(MediaType.APPLICATION_JSON)
     @GET
-    public List<Student> getAllTeachers() {
+    public List<Teacher> getAllTeachers() {
         return teacherService.getAllTeachers();
     }
 
 
-    @Path("getusersforitem/{teacherName}/{subjectname}")
+    @Path("getstudentsforsubjects/{teacherName}/{subjectName}")
     @GET
-    public Set<Student> getSpecificUsersForItem(@PathParam("teacherName") String buyerName, @PathParam("subjectname") String itemName) {
-        return teacherService.getSpeceficStudentForSubject("teacherName","subjectname");
+    public Set<Student> getSpecificStudentForSubject(@PathParam("teacherName") String teacherName, @PathParam("subjectName") String subjectName) {
+        return teacherService.getSpeceficStudentForSubject("teacherName","subjectName");
     }
 }

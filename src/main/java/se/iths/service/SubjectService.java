@@ -13,7 +13,7 @@ public class SubjectService {
     @PersistenceContext
     EntityManager entityManager;
 
-    public List<Subject> getAllItems() {
+    public List<Subject> getAllSubjects() {
         return entityManager.createQuery("SELECT i FROM Subject i", Subject.class).getResultList();
     }
 
