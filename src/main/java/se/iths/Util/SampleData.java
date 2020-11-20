@@ -1,6 +1,9 @@
 package se.iths.Util;
 
 import se.iths.entity.Student;
+import se.iths.entity.Subject;
+import se.iths.entity.Teacher;
+import se.iths.rest.SubjectsTypes;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -17,15 +20,37 @@ public class SampleData {
 
     @PostConstruct
     public void generateData() {
-        entityManager.persist(new Student("Rickard","Forslund","Rickard.forslund@live.se", "07227942191"));
-        entityManager.persist(new Student("Joakim","Forslund","Joakim.forslund@live.se", "431349211"));
-        entityManager.persist(new Student("Pelle","Eriksson","Pelle.eriksson@hotmial.com", "072233291"));
-        entityManager.persist(new Student("Runar","Sten","Runar.Sten@live.se", "072513152191"));
-        entityManager.persist(new Student("Steve","Andersson","Steve.Andersson@live.se", "0753315191"));
-        entityManager.persist(new Student("Isabella","Svensson","Isabella.Svensson@live.se", "0735737532191"));
-        entityManager.persist(new Student("Sara","Karlsson","Sara.Karlsson@live.se", "0722631163191"));
-        entityManager.persist(new Student("Fia","Svankvist","Fia.Svankvist@live.se", "075133553191"));
-        entityManager.persist(new Student("Linus","Axelsson","Linus.Axelsson@live.se", "015351391"));
-        entityManager.persist(new Student("Oskar","Blomberg","Oskar.Blomberg@live.se", "07225135391"));
+
+        Student student1 = new Student("Rickard", "Forslund", "Rickard.forslund@live.se", "07227942191");
+        Student student2 = new Student("Joakim", "Forslund", "Joakim.forslund@live.se", "431349211");
+        Student student3 = new Student("Pelle", "Eriksson", "Pelle.eriksson@hotmial.com", "072233291");
+
+        Teacher teacher1 = new Teacher("Pontus", "Redig");
+        Teacher teacher2 = new Teacher("Martin", "Blomberg");
+
+        Subject subject1 = new Subject("Javascript");
+        Subject subject2 = new Subject("C++");
+        Subject subject3 = new Subject("Java");
+        Subject subject4 = new Subject("C#");
+
+
+        student1.addSubject(subject1);
+        student1.addSubject(subject2);
+        student1.addSubject(subject3);
+        student2.addSubject(subject4);
+        student3.addSubject(subject1);
+
+        teacher1.addSubject(subject1);
+        teacher1.addSubject(subject2);
+        teacher2.addSubject(subject3);
+        teacher2.addSubject(subject4);
+
+
+        entityManager.persist(student1);
+        entityManager.persist(student2);
+        entityManager.persist(student3);
+        entityManager.persist(teacher1);
+        entityManager.persist(teacher2);
+
     }
 }

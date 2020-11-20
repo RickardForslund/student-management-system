@@ -1,10 +1,9 @@
 package se.iths.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Student {
@@ -21,15 +20,33 @@ public class Student {
     @NotEmpty
     private String phoneNumber;
 
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private Set<Subject> subjects = new HashSet<>();
+
+    public void addSubject(Subject subject){
+        subjects.add(subject);
+        subject.getStudents().add(this);
+
+    }
+
     public Student() {
     }
 
-    public Student(String firstName, String lastName, String email, String phoneNumber) {
+    public Student(@NotEmpty String firstName,@NotEmpty  String lastName,@NotEmpty  String email,@NotEmpty  String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
 
     public Long getId() {
         return id;
