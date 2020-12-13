@@ -133,6 +133,13 @@
 
   `GET` | `POST` | `DELETE` | `PUT`
 
+* **JSON:**
+`{
+	"firstName":"Rickard",
+	"lastName": "Forslund",
+	"email": "rickard.forslund@live.se",
+	"phoneNumber" : "52352532"
+}`
 
 * **Success Response:**
   
@@ -162,7 +169,6 @@
   <_DELETE_>
 
   `GET` | `POST` | `DELETE` | `PUT`
-
 
 * **Success Response:**
   
@@ -194,6 +200,13 @@
 
   `GET` | `POST` | `DELETE` | `PUT`
 
+* **JSON:**
+`{
+	"firstName":"Rickard",
+	"lastName": "Forslund",
+	"email": "rickard.forslund@live.se",
+	"phoneNumber" : "0723321231"
+}`
 
 * **Success Response:**
   
