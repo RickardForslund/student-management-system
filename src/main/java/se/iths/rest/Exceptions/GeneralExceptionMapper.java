@@ -1,4 +1,4 @@
-package se.iths.rest;
+package se.iths.rest.Exceptions;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;

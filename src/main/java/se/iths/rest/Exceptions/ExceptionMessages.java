@@ -1,4 +1,4 @@
-package se.iths.rest;
+package se.iths.rest.Exceptions;
 
 public enum ExceptionMessages {
     Invalid_Student_ID,

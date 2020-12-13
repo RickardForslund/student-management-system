@@ -1,7 +1,5 @@
 package se.iths.entity;
 
-import se.iths.rest.SubjectsTypes;
-
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
